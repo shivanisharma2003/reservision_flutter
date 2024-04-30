@@ -18,6 +18,7 @@ class _loginScreenState extends State<loginScreen> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   bool checkValue = false;
+  var checkgitup;
   @override
   Widget build(BuildContext context) {
     // var height = MediaQuery.of(context).size.height;
