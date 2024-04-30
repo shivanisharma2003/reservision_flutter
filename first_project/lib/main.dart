@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() {
 
+  WidgetsFlutterBinding.ensureInitialized();
   // Changes by shivani
   runApp(const MyApp());
 }

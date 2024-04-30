@@ -12,8 +12,13 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
     return Scaffold(
       appBar: AppBar(
       ),
-      body:Container(
-        child: Text('Templates Screen'),
+      body:Center(
+        child: Container(
+          height: 300,
+          width: 300,
+          color: Colors.blue,
+          child: Center(child: Text('Templates Screen')),
+        ),
       ),
     );
   }

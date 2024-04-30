@@ -2,48 +2,47 @@ import '../../util/const_Color/constColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 class CustomClass{
- static Widget CustomTextField(String hintText,Icon iconShow,TextEditingController controller,bool ispassword){
-    return TextField(
-      controller: controller,
-      obscureText: ispassword? true:false ,
-      keyboardType:TextInputType.emailAddress,
-      onTapOutside: (event){
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(30)
-      ],
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.only(top: 10, bottom: 6,),
-        isDense: true,
-        prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
-        prefixIcon:Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child:iconShow,
-        ),
-        hintText: hintText,
-        hintStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-          color: Color(0xFF828282),
-        ),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFF828282)), // Bottom border color
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.black), // Bottom border color
-        ),
-      ),
-      style: TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w600,
-        color: Color(0xFF000000),
-      ),
-    );
-  }
-
-
+ static Widget CustomTextField(String hintText,Icon iconShow,TextEditingController controller,bool ispassword) {
+   return TextField(
+     controller: controller,
+     obscureText: ispassword ? true : false,
+     keyboardType: TextInputType.emailAddress,
+     onTapOutside: (event) {
+       FocusManager.instance.primaryFocus?.unfocus();
+     },
+     inputFormatters: [
+       LengthLimitingTextInputFormatter(30)
+     ],
+     cursorColor: Colors.black,
+     decoration: InputDecoration(
+       contentPadding: EdgeInsets.only(top: 10, bottom: 6,),
+       isDense: true,
+       prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+       prefixIcon: Padding(
+         padding: const EdgeInsets.only(right: 10),
+         child: iconShow,
+       ),
+       hintText: hintText,
+       hintStyle: TextStyle(
+         fontSize: 15,
+         fontWeight: FontWeight.w400,
+         color: Color(0xFF828282),
+       ),
+       enabledBorder: UnderlineInputBorder(
+         borderSide: BorderSide(
+             color: Color(0xFF828282)), // Bottom border color
+       ),
+       focusedBorder: UnderlineInputBorder(
+         borderSide: BorderSide(color: Colors.black), // Bottom border color
+       ),
+     ),
+     style: TextStyle(
+       fontSize: 15,
+       fontWeight: FontWeight.w600,
+       color: Color(0xFF000000),
+     ),
+   );
+ }
   static Widget customButton(String text ,Image? imageShow,VoidCallback onTap){
    return GestureDetector(
      onTap: onTap,
@@ -73,7 +72,6 @@ class CustomClass{
      ),
    );
   }
-
   static Widget customSearchBox(Icon iconShow,String text){
    return Padding(
      padding: const EdgeInsets.only(right: 20,left: 20),
@@ -107,7 +105,6 @@ class CustomClass{
                ),
              ),
            )
-
          ],
        ),
      ),

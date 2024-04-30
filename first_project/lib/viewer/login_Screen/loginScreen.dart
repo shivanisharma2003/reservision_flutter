@@ -200,21 +200,7 @@ class _loginScreenState extends State<loginScreen> {
     );
   }
   bool validation(){
-    if (emailController.text.isEmpty &&
-        passwordController.text.isEmpty) {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return CustomAleartBox(
-                title: ConstString.customAleart_title,
-                description:
-                ConstString.emailPasswordIsEmpty_description,
-                image: "assets/images/mingcute_alert-line.png",
-                onTap: () {
-                  Navigator.pop(context);
-                });
-          });
-    } else if (emailController.text.isEmpty) {
+    if (emailController.text.isEmpty) {
       showDialog(
           context: context,
           builder: (BuildContext context) {

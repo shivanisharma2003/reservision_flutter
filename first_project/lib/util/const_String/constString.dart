@@ -14,12 +14,12 @@ class ConstString{
  static const google_tex="Google";
  static const messages_tex="Messages";
  static const customAleart_title="Alert";
- static const emailPasswordIsEmpty_description="Please Fill All The Required Detail";
- static const emailEmpty_description="Please Enter Your EmailAddress";
- static const validEmail_description="Please Enter Valid EmailAddress";
- static const passwordEmpty_description="Please Enter Your Password";
- static const validPassword_description="Please Enter minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:";
+ static const emailEmpty_description="Please enter your emailAddress";
+ static const validEmail_description="Please enter valid emailAddress";
+ static const passwordEmpty_description="Please enter your password";
+ static const validPassword_description="Please enter minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:";
  static const templates_tex="Templates";
  static const contacts_tex="Contacts";
  static const more_tex="More";
+
 }

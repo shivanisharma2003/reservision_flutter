@@ -7,4 +7,6 @@ class ConstColor {
  //static Color LinearGradient_Color = const Color();
   static Color white_Color=const Color(0xFFFFFFFF);
   static Color bordertextField_Color=const Color(0xFFC7C7C7);
+  static Color bottomNavigationBar_Color=const Color(0xFFDFDFDF);
+  static Color ContainerBottom_Color=const Color(0xFFD9D9D9);
 }
