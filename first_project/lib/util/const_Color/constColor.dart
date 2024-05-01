@@ -8,5 +8,9 @@ class ConstColor {
   static Color white_Color=const Color(0xFFFFFFFF);
   static Color bordertextField_Color=const Color(0xFFC7C7C7);
   static Color bottomNavigationBar_Color=const Color(0xFFDFDFDF);
-  static Color ContainerBottom_Color=const Color(0xFFD9D9D9);
+  static Color containerBottom_Color=const Color(0xFFD9D9D9);
+  static Color divider_Color=const Color(0xFFE4E1E1);
+  static Color contactsDarkBlack_Color=Color(0xFF000000);
+  static Color contactsLightBlack_Color=Color(0xFFBBBABA);
+  static Color texejconcierge_Color=Color(0xFF464855);
 }

@@ -41,19 +41,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
         toolbarHeight: 158,
         flexibleSpace: appBarContent(),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: listOfMessages.length,
-              itemBuilder: (context, index) {
-                return listItem(index);
-              },
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        shrinkWrap: true,
+       // physics: const NeverScrollableScrollPhysics(),
+        itemCount: listOfMessages.length,
+        itemBuilder: (context, index) {
+          return listItem(index);
+        },
       ),
     );
   }
@@ -83,7 +77,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       color: ConstColor.white_Color),
                 ),
                 Image.asset(
-                  AssetsImages.appbar_img,
+                  AssetsImages.appBar_img,
                   width: 30,
                   height: 30,
                 )
@@ -109,7 +103,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-              width: 1, color: ConstColor.ContainerBottom_Color),
+              width: 1, color: ConstColor.containerBottom_Color),
         ),
       ),
       padding: const EdgeInsets.only(left: 20, right: 20, top: 15,bottom: 10),

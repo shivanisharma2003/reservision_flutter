@@ -6,33 +6,27 @@ import 'package:first_project/viewer/templates_Screen/templatesScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import '../../util/assets_images/assetsImages.dart';
 import '../../util/const_Color/constColor.dart';
-
 class BottomNavigationbarScreen extends StatefulWidget {
   const BottomNavigationbarScreen({super.key});
   @override
   State<BottomNavigationbarScreen> createState() =>
       _BottomNavigationbarScreenState();
 }
-
 class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
   int pageIndex = 0;
-
   final List<Widget> pages = [
     const MessagesScreen(),
     const TemplatesScreen(),
     const ContactsScreen(),
     const MoreScreen(),
   ];
-
   @override
   void initState() {
     super.initState();
     WidgetsFlutterBinding.ensureInitialized();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,19 +56,16 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-
             navBarItems(0, AssetsImages.message_img, ConstString.messages_tex),
             navBarItems(1, AssetsImages.templates_img, ConstString.templates_tex),
             navBarItems(2, AssetsImages.contacts_img, ConstString.contacts_tex),
             navBarItems(3, AssetsImages.more_img, ConstString.more_tex),
-
           ],
         ),
       ),
     );
         });
   }
-
   Widget navBarItems(int index,String imageName,msgText){
     return GestureDetector(
           onTap: () {
@@ -103,6 +94,5 @@ class _BottomNavigationbarScreenState extends State<BottomNavigationbarScreen> {
             ],
           ),
         );
-
   }
 }

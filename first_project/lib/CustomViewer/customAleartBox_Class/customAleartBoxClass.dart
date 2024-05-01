@@ -31,12 +31,13 @@ class CustomAleartBox extends StatelessWidget {
                   fontSize: 27,fontWeight: FontWeight.w600,color:ConstColor.orange_Color,
                 ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 18,),
                 Padding(
-                  padding: const EdgeInsets.only(left: 30,right: 30),
+                  padding: const EdgeInsets.only(left: 20,right: 20),
                   child: Text(description,style: TextStyle(
-                      fontSize: 12,fontWeight: FontWeight.w400,color: Color.fromRGBO(85, 85, 85, 1)
+                      fontSize: 14,fontWeight: FontWeight.w400,color: Color.fromRGBO(85, 85, 85, 1)
                   ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Expanded(

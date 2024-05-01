@@ -1,4 +1,5 @@
 import 'package:first_project/CustomViewer/customAleartBox_Class/customAleartBoxClass.dart';
+import 'package:first_project/CustomViewer/custom_Function/customFunction.dart';
 import 'package:first_project/util/assets_images/assetsImages.dart';
 import 'package:first_project/viewer/bottomNavigationbar_Screen/bottomNavigationbarScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,8 +22,8 @@ class _loginScreenState extends State<loginScreen> {
   var checkgitup;
   @override
   Widget build(BuildContext context) {
-    // var height = MediaQuery.of(context).size.height;
-    // var width = MediaQuery.of(context).size.width;
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -162,17 +163,17 @@ class _loginScreenState extends State<loginScreen> {
      
     );
   }
-  double getHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  }
-  double getWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
-  }
+  // double getHeight(BuildContext context) {
+  //   return MediaQuery.of(context).size.height;
+  // }
+  // double getWidth(BuildContext context) {
+  //   return MediaQuery.of(context).size.width;
+  // }
   Widget rowDivider() {
     return Row(
       children: [
         Container(
-          width: getWidth(context) / 3.2,
+          width: commonFunction.getWidth(context) / 3.2,
           height: 1,
           decoration: BoxDecoration(
             color: ConstColor.lightblack_Color,
@@ -189,7 +190,7 @@ class _loginScreenState extends State<loginScreen> {
           ),
         ),
         Container(
-          width: MediaQuery.of(context).size.width / 3.2,
+          width: commonFunction.getWidth(context)/3.2,
           height: 1,
           decoration: BoxDecoration(
             color: ConstColor.lightblack_Color,

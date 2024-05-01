@@ -47,8 +47,8 @@ class CustomClass{
    return GestureDetector(
      onTap: onTap,
      child: Container(
-      height: 50,
-       //margin: EdgeInsets.only(left: 10,right: 10),
+      //height: 50,
+      padding: EdgeInsets.only(top: 12,bottom: 12),
        decoration: BoxDecoration(
          gradient: LinearGradient(
            colors: [
