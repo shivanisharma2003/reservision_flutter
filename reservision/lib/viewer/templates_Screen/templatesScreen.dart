@@ -44,7 +44,6 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                 margin: EdgeInsets.only(top:15),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                     // SizedBox(height: 12),
                       Text(
                         ListOftemplates[index],
                         style: TextStyle(

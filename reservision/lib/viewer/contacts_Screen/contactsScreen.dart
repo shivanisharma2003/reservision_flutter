@@ -8,14 +8,11 @@ import '../../util/assets_images/assetsImages.dart';
 import '../../util/const_Color/constColor.dart';
 import '../../util/const_String/constString.dart';
 import '../addContact_Screen/addContactScreen.dart';
-
 class ContactsScreen extends StatefulWidget {
   const ContactsScreen({super.key});
-
   @override
   State<ContactsScreen> createState() => _ContactsScreenState();
 }
-
 class _ContactsScreenState extends State<ContactsScreen> {
   List<String> ListOfContacts = [
     "Adam Worlock",
@@ -46,20 +43,21 @@ class _ContactsScreenState extends State<ContactsScreen> {
       body: Padding(
         padding: EdgeInsets.only(left: 30,right: 30),
         child: ListView.builder(
+            shrinkWrap: true,
             itemCount:ListOfContacts.length,
             itemBuilder: (BuildContext ,index){
-              return GestureDetector(
+              return InkWell(
                 onTap: (){
                  Navigator.push(context ,MaterialPageRoute(builder: (context)=>AditContactScreen())
                  );
                 },
                 child: Container(
+                  margin: EdgeInsets.only(top: 11),
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10,),
                       Text(ListOfContacts[index],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: ConstColor.contactsDarkBlack_Color),
                       ),
-                        SizedBox(height: 8,),
+                        SizedBox(height: 5,),
                       Text("(217) 234-4563",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: ConstColor.contactsLightBlack_Color),
                       ),
                         SizedBox(height: 7,),

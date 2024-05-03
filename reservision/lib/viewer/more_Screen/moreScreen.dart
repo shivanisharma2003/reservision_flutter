@@ -37,7 +37,7 @@ class _MoreScreenState extends State<MoreScreen> {
                 SizedBox(height: 15),
                 Text(ConstString.ejConcierge_Ride,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: ConstColor.texejconcierge_Color),
                 ),
-                SizedBox(height: 330,),
+                SizedBox(height: 265,),
                 CustomClass.customButton("Sign out", null, () { })
                ],
             ),
