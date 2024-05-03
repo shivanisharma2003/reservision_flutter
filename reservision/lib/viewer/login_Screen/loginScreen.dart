@@ -85,7 +85,7 @@ class _loginScreenState extends State<loginScreen> {
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                    color: ConstColor.lightblack_Color),
+                    color: ConstColor.darkblack_Color),
               ),
               CustomClass.CustomTextField(
                   ConstString.password_hinttex,

@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rservision/viewer/aditContact_Screen/aditContactScreen.dart';
 
 import '../../CustomViewer/custom_Class/customClass.dart';
 import '../../util/assets_images/assetsImages.dart';
@@ -43,22 +44,30 @@ class _ContactsScreenState extends State<ContactsScreen> {
         flexibleSpace: appBarContent(),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 10,left: 30,right: 30),
+        padding: EdgeInsets.only(left: 30,right: 30),
         child: ListView.builder(
             itemCount:ListOfContacts.length,
             itemBuilder: (BuildContext ,index){
-              return Column(crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 7,),
-                  Text(ListOfContacts[index],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: ConstColor.contactsDarkBlack_Color),
-                  ),
-                    SizedBox(height: 8,),
-                  Text("(217) 234-4563",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: ConstColor.contactsLightBlack_Color),
-                  ),
-                    SizedBox(height: 7,),
-                    Divider(color: ConstColor.divider_Color,),
-                  ],
-                );
+              return GestureDetector(
+                onTap: (){
+                 Navigator.push(context ,MaterialPageRoute(builder: (context)=>AditContactScreen())
+                 );
+                },
+                child: Container(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10,),
+                      Text(ListOfContacts[index],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: ConstColor.contactsDarkBlack_Color),
+                      ),
+                        SizedBox(height: 8,),
+                      Text("(217) 234-4563",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: ConstColor.contactsLightBlack_Color),
+                      ),
+                        SizedBox(height: 7,),
+                        Divider(color: ConstColor.divider_Color,),
+                      ],
+                    ),
+                ),
+              );
             }
             ),
       ),
@@ -91,7 +100,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             ),
           ),
           SizedBox(height: 25,),
-          CustomClass.customSearchBox(Icon(Icons.search_sharp,size: 28,), "Search")
+          CustomClass.customSearchBox(Icon(Icons.search_sharp,size: 28,), "Search"),
         ],
       ),
     );

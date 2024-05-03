@@ -35,34 +35,38 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
           flexibleSpace: appBarContent(),
         ),
         body: Padding(
-    padding: const EdgeInsets.only(top:10,left: 30,right: 25),
+    padding: const EdgeInsets.only(left: 30,right: 25),
     child: ListView.builder(
+        shrinkWrap: true,
             itemCount: ListOftemplates.length,
             itemBuilder: (Context, index) {
-              return Column(crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 14),
-                    Text(
-                      ListOftemplates[index],
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: ConstColor.darkblack_Color),
-                    ),
-                    SizedBox(height: 5,),
-                    Text(
-                      "Lorem Ipsum is simply dummy text of the printing and type industry. Lorem Ipsum has been the industry dummy text",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: ConstColor.lightblack_Color),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    SizedBox(height: 12),
-                    Divider(height: 0,color: ConstColor.divider_Color,thickness: 1,),
-                  ],
-                );
+              return Container(
+                margin: EdgeInsets.only(top:15),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     // SizedBox(height: 12),
+                      Text(
+                        ListOftemplates[index],
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: ConstColor.darkblack_Color),
+                      ),
+                      SizedBox(height: 5,),
+                      Text(
+                        "Lorem Ipsum is simply dummy text of the printing and type industry. Lorem Ipsum has been the industry dummy text",
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: ConstColor.lightblack_Color),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 12),
+                      Divider(height: 0,color: ConstColor.divider_Color,thickness: 1,),
+                    ],
+                  ),
+              );
 
             }
             ),

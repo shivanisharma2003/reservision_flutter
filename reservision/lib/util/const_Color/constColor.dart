@@ -13,4 +13,10 @@ class ConstColor {
   static Color contactsDarkBlack_Color=Color(0xFF000000);
   static Color contactsLightBlack_Color=Color(0xFFBBBABA);
   static Color texejconcierge_Color=Color(0xFF464855);
+  static Color done_Color=Color(0xFFFFFFFF);
+  static Color skyblue_Color=Color(0xFF0269E2);
+  static Color cursalBack_Color=Color(0xFF626262);
+  static Color enabaleTextField_Color=Color(0xFF828282);
+  static Color addContactTextField_Color=Color(0xFFD4D4D4);
+  static Color addContactFirstName_Color=Color(0xFFAEAEAE);
 }

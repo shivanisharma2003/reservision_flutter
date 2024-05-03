@@ -8,4 +8,6 @@ class AssetsImages{
 static String contacts_img="assets/images/mage_contact-book.png";
 static String more_img="assets/images/fluent_more-circle-24-regular.png";
 static String moreScreen_img="assets/images/Ellipse24.png";
+static String addphoto_img="assets/images/Group906.png";
+
 }

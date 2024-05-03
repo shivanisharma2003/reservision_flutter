@@ -13,7 +13,7 @@ class CustomClass{
      inputFormatters: [
        LengthLimitingTextInputFormatter(30)
      ],
-     cursorColor: Colors.black,
+     cursorColor: ConstColor.cursalBack_Color,
      decoration: InputDecoration(
        contentPadding: EdgeInsets.only(top: 10, bottom: 6,),
        isDense: true,
@@ -30,10 +30,10 @@ class CustomClass{
        ),
        enabledBorder: UnderlineInputBorder(
          borderSide: BorderSide(
-             color: Color(0xFF828282)), // Bottom border color
+             color: ConstColor.enabaleTextField_Color), // Bottom border color
        ),
        focusedBorder: UnderlineInputBorder(
-         borderSide: BorderSide(color: Colors.black), // Bottom border color
+         borderSide: BorderSide(color: ConstColor.darkblack_Color), // Bottom border color
        ),
      ),
      style: TextStyle(
@@ -107,6 +107,32 @@ class CustomClass{
            )
          ],
        ),
+     ),
+   );
+  }
+  static Widget addContactTextField(String hintText,TextEditingController controller){
+   return  TextField(
+     controller: controller,
+     onTapOutside: (event){
+       FocusManager.instance.primaryFocus?.unfocus();
+     },
+     inputFormatters: [
+       LengthLimitingTextInputFormatter(30),
+     ],
+     cursorColor: ConstColor.cursalBack_Color,
+     decoration: InputDecoration(
+       enabledBorder: UnderlineInputBorder(
+           borderSide: BorderSide(
+             color: ConstColor.addContactTextField_Color,
+           )
+       ),
+       focusedBorder: UnderlineInputBorder(
+           borderSide: BorderSide(
+             color: ConstColor.darkblack_Color,
+           )
+       ),
+       hintText:hintText,
+       hintStyle: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: ConstColor.addContactFirstName_Color),
      ),
    );
   }

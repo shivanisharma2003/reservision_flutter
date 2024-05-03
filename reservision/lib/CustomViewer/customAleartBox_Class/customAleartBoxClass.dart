@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rservision/CustomViewer/custom_Function/customFunction.dart';
 
 import '../../util/const_Color/constColor.dart';
 class CustomAleartBox extends StatelessWidget {
@@ -31,7 +32,7 @@ class CustomAleartBox extends StatelessWidget {
                   fontSize: 27,fontWeight: FontWeight.w600,color:ConstColor.orange_Color,
                 ),
                 ),
-                SizedBox(height: 18,),
+                SizedBox(height: 15,),
                 Padding(
                   padding: const EdgeInsets.only(left: 20,right: 20),
                   child: Text(description,style: TextStyle(
@@ -49,7 +50,7 @@ class CustomAleartBox extends StatelessWidget {
                         onTap:onTap,
                         child: Container(
                           padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                          height: 50,
+                          height: CommonFunction.getHeight(context)/19,
                           width: 335,
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(207, 207, 207, 1)

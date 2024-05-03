@@ -17,7 +17,7 @@ class ConstString{
  static const emailEmpty_description="Please enter emailaddress";
  static const validEmail_description="Please enter valid emailaddress";
  static const passwordEmpty_description="Please enter  password";
- static const validPassword_description="Please enter minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+ static const validPassword_description="Please enter minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
  static const templates_tex="Templates";
  static const contacts_tex="Contacts";
  static const more_tex="More";
@@ -25,4 +25,10 @@ class ConstString{
  static const cencle_tex="CANCEL";
  static const add_Contact="Add Contact";
  static const done_tex="DONE";
+ static const add_tex="add";
+ static const photo_tex="Photo";
+ static const firstname_tex="First name";
+ static const lastname_tex="Last name";
+static const editScreenContacts_tex="CONTACTS";
+static const edit_tex="EDIT";
 }

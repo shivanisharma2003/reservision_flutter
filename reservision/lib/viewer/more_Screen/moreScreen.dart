@@ -13,6 +13,7 @@ class _MoreScreenState extends State<MoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 80,
      automaticallyImplyLeading: false,
        flexibleSpace: Container(
          decoration: BoxDecoration(
