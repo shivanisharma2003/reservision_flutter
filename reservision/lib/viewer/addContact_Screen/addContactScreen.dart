@@ -1,28 +1,39 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../CustomViewer/custom_Class/customClass.dart';
 import '../../CustomViewer/custom_Function/customFunction.dart';
 import '../../util/assets_images/assetsImages.dart';
 import '../../util/const_Color/constColor.dart';
 import '../../util/const_String/constString.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+class AddContactScreen extends StatefulWidget {
 
-class addContactScreen extends StatefulWidget {
-  const addContactScreen({super.key});
+  String firstName,lastName;
 
+   AddContactScreen({super.key,required this.firstName, required this.lastName, });
   @override
-  State<addContactScreen> createState() => _addContactScreenState();
+  State<AddContactScreen> createState() => _AddContactScreenState();
 }
-
-class _addContactScreenState extends State<addContactScreen> {
+class _AddContactScreenState extends State<AddContactScreen> {
   var firstNameController = TextEditingController();
   var lastNameController = TextEditingController();
   var phoneNumberController = TextEditingController();
   var count =false;
   var doneColor = Colors.yellow;
-
+  File? _image;
+  final picker =ImagePicker();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsFlutterBinding.ensureInitialized();
+    firstNameController.text =  widget.firstName;
+    lastNameController.text =widget.lastName;
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -50,17 +61,17 @@ class _addContactScreenState extends State<addContactScreen> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Center(child: addPhoto()),
+                  addPhoto(),
                   const SizedBox(
                     height: 40,
                   ),
-                  addContactTextField(
-                      ConstString.firstname_tex, firstNameController),
+                  CustomClass.addContactTextField(
+                      ConstString.firstname_tex, firstNameController,(value){updateDoneColor();}),
                   const SizedBox(
                     height: 25,
                   ),
-                  addContactTextField(
-                      ConstString.lastname_tex, lastNameController),
+                  CustomClass.addContactTextField(
+                      ConstString.lastname_tex, lastNameController,(value){updateDoneColor();}),
                   const SizedBox(
                     height: 30,
                   ),
@@ -86,14 +97,61 @@ class _addContactScreenState extends State<addContactScreen> {
                     },
                   ),
                 ],
-              )),
+              )
+              ),
             ),
           ),
         ),
       ),
     );
   }
+  //Image Picker function to get image from gallery
+  Future getImageFromGallery() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      }
+    });
+  }
 
+  //Image Picker function to get image from camera
+  Future getImageFromCamera() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      }
+    });
+  }
+  //Show options to get image from camera or gallery
+  Future showOptions() async {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (context) => CupertinoActionSheet(
+        actions: [
+          CupertinoActionSheetAction(
+            child: const Text('Photo Gallery'),
+            onPressed: () {
+              // close the options modal
+              Navigator.of(context).pop();
+              // get image from gallery
+              getImageFromGallery();
+            },
+          ),
+          CupertinoActionSheetAction(
+            child: const Text('Camera'),
+            onPressed: () {
+              // close the options modal
+              Navigator.of(context).pop();
+              // get image from camera
+              getImageFromCamera();
+            },
+          ),
+        ],
+      ),
+    );
+  }
   Widget appBarContent() {
     return Container(
       padding: const EdgeInsets.only(top: 35, left: 12, right: 15),
@@ -111,7 +169,7 @@ class _addContactScreenState extends State<addContactScreen> {
                 Navigator.pop(context);
               },
               child: Text(
-                ConstString.cencle_tex,
+                ConstString.cancle_tex,
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -137,34 +195,35 @@ class _addContactScreenState extends State<addContactScreen> {
       ),
     );
   }
-
   Widget addPhoto() {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Image.asset(AssetsImages.addphoto_img, height: 115, width: 115),
-        Column(
-          children: [
-            Text(
-              ConstString.add_tex,
-              style: TextStyle(
-                  color: ConstColor.skyblue_Color,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600),
-            ),
-            Text(
-              ConstString.photo_tex,
-              style: TextStyle(
-                  color: ConstColor.skyblue_Color,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      ],
+    return   InkWell(
+      onTap: showOptions,
+      child: Center(
+          child:  Container(
+              alignment: Alignment.center,
+              height: CommonFunction.getHeight(context)/7.2,
+              width:CommonFunction.getWidth(context)/3.5,
+              decoration: BoxDecoration(border: Border.all(color: ConstColor.addContactFirstName_Color),
+                borderRadius: const BorderRadius.all(Radius.circular(70),),
+              ),
+              child: _image == null?Text( ConstString.add_tex,
+                style: TextStyle(
+                    color: ConstColor.skyblue_Color,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600),
+                textAlign: TextAlign.center,
+              ):
+
+              ClipOval(
+                child:SizedBox.fromSize(
+                  size: const Size.fromRadius(70),
+                  child: Image.file(_image!,
+                    fit: BoxFit.cover,),),)
+          )
+        //  addPhoto(),
+      ),
     );
   }
-
   void updateDoneColor() {
     if (firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty && phoneNumberController.text.isNotEmpty) {
       setState(() {
@@ -173,41 +232,9 @@ class _addContactScreenState extends State<addContactScreen> {
     } else {
       setState(() {
         count = false;
-      });
+      }
+      );
     }
   }
 
-
-
-   Widget addContactTextField(String hintText,TextEditingController controller){
-    return  TextField(
-      controller: controller,
-      onTapOutside: (event){
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(30),
-      ],
-      cursorColor: ConstColor.cursalBack_Color,
-      decoration: InputDecoration(
-        enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: ConstColor.addContactTextField_Color,
-            )
-        ),
-        focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: ConstColor.darkblack_Color,
-            )
-        ),
-        hintText:hintText,
-        hintStyle: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: ConstColor.addContactFirstName_Color),
-
-      ),
-      onChanged: (value){
-        updateDoneColor();
-
-      },
-    );
-  }
 }

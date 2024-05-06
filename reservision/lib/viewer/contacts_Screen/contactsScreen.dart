@@ -48,7 +48,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             itemBuilder: (BuildContext ,index){
               return InkWell(
                 onTap: (){
-                 Navigator.push(context ,MaterialPageRoute(builder: (context)=>AditContactScreen())
+                 Navigator.push(context ,MaterialPageRoute(builder: (context)=>EditContactScreen())
                  );
                 },
                 child: Container(
@@ -90,10 +90,10 @@ class _ContactsScreenState extends State<ContactsScreen> {
               Text(ConstString.contacts_tex,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600,color: ConstColor.white_Color),
               ),
                GestureDetector(onTap: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>addContactScreen())
-                 );
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=> AddContactScreen(firstName: "",lastName: "",)));
                },
-                   child: Image.asset(AssetsImages.appBar_img,width: 28,height: 28,)),
+                   child: Image.asset(AssetsImages.appBar_img,width: 28,height: 28,)
+               ),
               ],
             ),
           ),

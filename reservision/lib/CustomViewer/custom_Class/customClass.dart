@@ -110,6 +110,36 @@ class CustomClass{
      ),
    );
   }
-
+static Widget addContactTextField(String hintText,TextEditingController controller,onChanged ){
+   return  TextField(
+     controller: controller,
+     onTapOutside: (event){
+       FocusManager.instance.primaryFocus?.unfocus();
+     },
+     inputFormatters: [
+       LengthLimitingTextInputFormatter(30),
+     ],
+     cursorColor: ConstColor.cursalBack_Color,
+     decoration: InputDecoration(
+       enabledBorder: UnderlineInputBorder(
+           borderSide: BorderSide(
+             color: ConstColor.addContactTextField_Color,
+           )
+       ),
+       focusedBorder: UnderlineInputBorder(
+           borderSide: BorderSide(
+             color: ConstColor.darkblack_Color,
+           )
+       ),
+       hintText:hintText,
+       hintStyle: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: ConstColor.addContactFirstName_Color),
+     ),
+     onChanged:onChanged,
+     //     (value){
+     //   onChanged;
+     //   //updateDoneColor();
+     // },
+   );
+ }
 }
 

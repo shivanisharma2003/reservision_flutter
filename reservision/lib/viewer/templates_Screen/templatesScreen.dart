@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rservision/viewer/newTemplate_Screen/newTemplateScreen.dart';
 
 import '../../CustomViewer/custom_Class/customClass.dart';
 import '../../util/assets_images/assetsImages.dart';
@@ -94,10 +96,14 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                       fontWeight: FontWeight.w600,
                       color: ConstColor.white_Color),
                 ),
-                Image.asset(
-                  AssetsImages.appBar_img,
-                  height: 28,
-                  width: 28,
+                GestureDetector(onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NewTemplateScreen()));
+                },
+                  child: Image.asset(
+                    AssetsImages.appBar_img,
+                    height: 28,
+                    width: 28,
+                  ),
                 ),
               ],
             ),

@@ -22,13 +22,14 @@ class ConstString{
  static const contacts_tex="Contacts";
  static const more_tex="More";
  static const ejConcierge_Ride="EJ CONCIERGE RIDE";
- static const cencle_tex="CANCEL";
+ static const cancle_tex="CANCEL";
  static const add_Contact="Add Contact";
  static const done_tex="DONE";
- static const add_tex="add";
+ static const add_tex="add\nphoto";
  static const photo_tex="Photo";
  static const firstname_tex="First name";
  static const lastname_tex="Last name";
 static const editScreenContacts_tex="CONTACTS";
 static const edit_tex="EDIT";
+static const newTemplates_tex="New Templates";
 }

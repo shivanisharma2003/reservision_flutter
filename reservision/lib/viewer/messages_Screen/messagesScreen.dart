@@ -1,19 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:rservision/viewer/newConversation_Screen/newConversationScreen.dart';
 import '../../CustomViewer/custom_Class/customClass.dart';
 import '../../util/assets_images/assetsImages.dart';
 import '../../util/const_Color/constColor.dart';
 import '../../util/const_String/constString.dart';
 import 'package:flutter/material.dart';
-
 class MessagesScreen extends StatefulWidget {
   const MessagesScreen({super.key});
-
   @override
   State<MessagesScreen> createState() => _MessagesScreenState();
 }
-
 class _MessagesScreenState extends State<MessagesScreen> {
   var listOfMessages = [
     "Smith Graffy",
@@ -76,10 +73,15 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       fontWeight: FontWeight.w600,
                       color: ConstColor.white_Color),
                 ),
-                Image.asset(
-                  AssetsImages.appBar_img,
-                  width: 30,
-                  height: 30,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NewConversationScreen()));
+                  },
+                  child: Image.asset(
+                    AssetsImages.appBar_img,
+                    width: 30,
+                    height: 30,
+                  ),
                 )
               ],
             ),
